@@ -1,7 +1,18 @@
-let grid = document.querySelector(".grid");
+const grid = document.querySelector(".grid");
+const body = document.querySelector("body");
+const changeResolutionButton = document.querySelector("#changeResolution");
+
 let arrayOfSquares = [];
-let body = document.querySelector("body");
 let numberOfSquares = 16;
+
+changeResolutionButton.addEventListener("click", () => {
+    let newNumberOfSquares = prompt('Please choose a number from 0 to 100.', '16');
+    numberOfSquares = newNumberOfSquares;
+    deleteGrid();
+    generateGrid();
+    addEventListeners();
+});
+
 function generateGrid(){
   //generate the rows
   for(let i = 0; i < numberOfSquares; i++){
@@ -31,6 +42,15 @@ function addEventListeners(){
         }
     }
 }
+
+function deleteGrid(){
+    //delete the rows
+    let rows = document.querySelectorAll(".row");
+    rows.forEach((row) => {
+        grid.removeChild(row);
+    });
+}
+
 
 
 generateGrid();
