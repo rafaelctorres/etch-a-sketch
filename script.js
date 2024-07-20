@@ -1,10 +1,10 @@
 let grid = document.querySelector(".grid");
 let arrayOfSquares = [];
 let body = document.querySelector("body");
-
+let numberOfSquares = 16;
 function generateGrid(){
   //generate the rows
-  for(let i = 0; i<16; i++){
+  for(let i = 0; i < numberOfSquares; i++){
     
     let row = document.createElement("div");
     row.setAttribute("class", "row");
@@ -13,10 +13,9 @@ function generateGrid(){
     arrayOfSquares[i] = [];
     
     //generate the squares
-    for(let j = 0; j<16; j++){
+    for(let j = 0; j < numberOfSquares; j++){
     let square = document.createElement("div");
     square.setAttribute("class", "square");
-    square.setAttribute("style", "color: blue; background: green; height:20px; width:20px; border: solid black 1px;");
     arrayOfSquares[i][j] = square;
     row.appendChild(square);
     }
@@ -24,16 +23,15 @@ function generateGrid(){
 }
 
 function addEventListeners(){
-
-    for(let i=0; i<16; i++){
-        for (let j = 0; j<16; j++){
+    for(let i = 0; i < numberOfSquares; i++){
+        for (let j = 0; j < numberOfSquares; j++){
             arrayOfSquares[i][j].addEventListener("mouseover", () => {
-            arrayOfSquares[i][j].setAttribute("style", "background: black; height: 20px; width: 20px; border: solid black 1px;");
+            arrayOfSquares[i][j].setAttribute("style", "background: black; flex: 1; border: solid black 1px;");
             });
         }
     }
-  
 }
+
 
 generateGrid();
 addEventListeners();

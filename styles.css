@@ -6,9 +6,22 @@ body{
 .grid {
     display: flex;
     flex-direction: column;
+    width:920px;
+    height:920px;
+    background-color: brown;
 }
   
 .row {
     display:flex;
+    flex:1;
+    width: 920px;
+
 }
-  
+
+.square{
+    flex: 1;
+    color: blue; 
+    background-color: green; 
+    border: solid black 1px;
+    
+}
