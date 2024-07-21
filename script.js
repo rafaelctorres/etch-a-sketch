@@ -34,13 +34,17 @@ function generateGrid(){
 }
 
 function addEventListeners(){
+    let a = 0;
     for(let i = 0; i < numberOfSquares; i++){
         for (let j = 0; j < numberOfSquares; j++){
             arrayOfSquares[i][j].addEventListener("mouseover", () => {
             let r = Math.floor(Math.random()*255);
             let g = Math.floor(Math.random()*255);
             let b = Math.floor(Math.random()*255);
-            arrayOfSquares[i][j].setAttribute("style", `background: rgb(${r},${g},${b}); flex: 1; border: solid black 1px;`);
+            arrayOfSquares[i][j].setAttribute("style", `background: rgba(${r},${g},${b},${a}); flex: 1; border: solid black 1px;`);
+            if (a<1){
+                a += 0.01;
+            }
             });
         }
     }
