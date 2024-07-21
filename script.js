@@ -4,6 +4,7 @@ const changeResolutionButton = document.querySelector("#changeResolution");
 
 let arrayOfSquares = [];
 let numberOfSquares = 16;
+let alphaColor = 0;
 
 changeResolutionButton.addEventListener("click", () => {
     let newNumberOfSquares = prompt('Please choose a number from 0 to 100.', '16');
@@ -35,17 +36,19 @@ function generateGrid(){
 
 
 function addEventListeners(){
-    let a = 0;
+
     grid.addEventListener("mouseover", (e)=>{
         let r = Math.floor(Math.random()*255);
         let g = Math.floor(Math.random()*255);
         let b = Math.floor(Math.random()*255);
         let target = e.target;
-        target.setAttribute("style", `background: rgba(${r},${g},${b},${a}); flex: 1; border: solid black 1px;`);
-        if (a<1){
-            a += 0.1;
+        target.setAttribute("style", `background: rgba(${r},${g},${b},${alphaColor}); flex: 1; border: solid black 1px;`);
+        if (alphaColor<1){
+            alphaColor += 0.1;
         }
     })
+
+    grid.addEventListener("mouseleave", () => alphaColor = 0);
 }
 
 
@@ -56,7 +59,6 @@ function deleteGrid(){
         grid.removeChild(row);
     });
 }
-
 
 
 generateGrid();
