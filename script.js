@@ -33,22 +33,21 @@ function generateGrid(){
   }
 }
 
+
 function addEventListeners(){
     let a = 0;
-    for(let i = 0; i < numberOfSquares; i++){
-        for (let j = 0; j < numberOfSquares; j++){
-            arrayOfSquares[i][j].addEventListener("mouseover", () => {
-            let r = Math.floor(Math.random()*255);
-            let g = Math.floor(Math.random()*255);
-            let b = Math.floor(Math.random()*255);
-            arrayOfSquares[i][j].setAttribute("style", `background: rgba(${r},${g},${b},${a}); flex: 1; border: solid black 1px;`);
-            if (a<1){
-                a += 0.01;
-            }
-            });
+    grid.addEventListener("mouseover", (e)=>{
+        let r = Math.floor(Math.random()*255);
+        let g = Math.floor(Math.random()*255);
+        let b = Math.floor(Math.random()*255);
+        let target = e.target;
+        target.setAttribute("style", `background: rgba(${r},${g},${b},${a}); flex: 1; border: solid black 1px;`);
+        if (a<1){
+            a += 0.1;
         }
-    }
+    })
 }
+
 
 function deleteGrid(){
     //delete the rows
@@ -62,5 +61,6 @@ function deleteGrid(){
 
 generateGrid();
 addEventListeners();
+
 
 
