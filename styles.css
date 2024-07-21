@@ -1,9 +1,19 @@
 body {
-    display:flex;
-    flex-grow:1;
+display:flex;
+flex-direction:column;
+}
+
+#changeResolution{
+    font-size: 32px;
+    align-self: center;
+    justify-content: center;
+    padding:6px;
+    margin-bottom: 12px;
 }
   
 .grid {
+    align-self: center;
+    justify-content:center;
     display: flex;
     flex-direction: column;
     width: 920px;
